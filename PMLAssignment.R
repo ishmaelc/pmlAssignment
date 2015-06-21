@@ -32,8 +32,10 @@ testing <- preData[-inTrain,]
 modelFit <- train(classe ~ .,method = 'rf', data= training)
 
 #run training through model fit and display confusion matrix
-confusionMatrix(training$classe, predict(modelFit,training))$overall['Accuracy']
+trainCM <- confusionMatrix(training$classe, predict(modelFit,training))
 
 #run training through model fit and display confusion matrix
-confusionMatrix(testing$classe, predict(modelFit,testing))$overall['Accuracy']
+testCM <- confusionMatrix(testing$classe, predict(modelFit,testing))
 
+trainCM
+testCM
